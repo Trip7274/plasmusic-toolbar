@@ -120,6 +120,12 @@
         <entry name="fullAlbumCoverAsBackground" type="Bool">
             <default>false</default>
         </entry>
+		<entry name="isAlbumCoverRounded" type="Bool">
+			<default>true</default>
+		</entry>
+		<entry name="fullAlbumCoverRadius" type="Int">
+			<default>6</default>
+		</entry>
         <entry name="noMediaText" type="String">
             <default>No media found</default>
         </entry>

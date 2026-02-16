@@ -15,6 +15,8 @@ Item {
     property string albumPlaceholder: plasmoid.configuration.albumPlaceholder
     property real volumeStep: plasmoid.configuration.volumeStep
     property bool albumCoverBackground: plasmoid.configuration.fullAlbumCoverAsBackground
+    property bool isAlbumCoverRounded: plasmoid.configuration.isAlbumCoverRounded
+    property int albumCoverRadius: plasmoid.configuration.fullAlbumCoverRadius
 
     Layout.preferredHeight: column.implicitHeight
     Layout.preferredWidth: column.implicitWidth
@@ -57,6 +59,18 @@ Item {
                 readonly property color fgColor: Kirigami.ColorUtils.tintWithAlpha(bgColor, contrastColor, .6)
                 readonly property color hlColor: Kirigami.ColorUtils.tintWithAlpha(bgColor, contrastColor, .8)
             }
+
+            layer.enabled: root.isAlbumCoverRounded && root.albumCoverRadius > 0
+			layer.effect: OpacityMask {
+				maskSource: Item {
+					width: albumArtFull.width
+					height: albumArtFull.height
+					Rectangle {
+						anchors.fill: parent
+						radius: albumCoverRadius
+					}
+				}
+			}
         }
 
         LinearGradient {
@@ -115,6 +129,18 @@ Item {
 
                 placeholderSource: albumPlaceholder
                 imageSource: player.artUrl
+
+                layer.enabled: root.isAlbumCoverRounded && root.albumCoverRadius > 0
+                layer.effect: OpacityMask {
+					maskSource: Item {
+						width: albumArtNormal.width
+						height: albumArtNormal.height
+						Rectangle {
+							anchors.fill: parent
+							radius: albumCoverRadius
+						}
+					}
+				}
             }
         }
 
