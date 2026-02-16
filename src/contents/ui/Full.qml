@@ -68,6 +68,8 @@ Item {
 					Rectangle {
 						anchors.fill: parent
 						radius: albumCoverRadius
+                        bottomRightRadius: 0
+                        bottomLeftRadius: 0
 					}
 				}
 			}
