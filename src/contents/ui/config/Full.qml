@@ -62,6 +62,21 @@ KCM.SimpleKCM {
             }
         }
 
+        CheckBox {
+            Kirigami.FormData.label: i18n("Round album cover")
+            id: isAlbumCoverRounded
+        }
+
+        Slider {
+            Layout.preferredWidth: 10 * Kirigami.Units.gridUnit
+            enabled: isAlbumCoverRounded.checked
+            id: fullAlbumCoverRadius
+            from: 2
+            to: 26
+            stepSize: 2
+            Kirigami.FormData.label: i18n("Album cover radius")
+        }
+
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18n("Song Text Customization")
@@ -275,21 +290,6 @@ KCM.SimpleKCM {
             id: fullAlbumCoverAsBackground
             text: i18n("(Experimental feature)")
         }
-
-        CheckBox {
-			Kirigami.FormData.label: i18n("Round album cover")
-			id: isAlbumCoverRounded
-		}
-
-		Slider {
-			Layout.preferredWidth: 10 * Kirigami.Units.gridUnit
-			enabled: isAlbumCoverRounded.checked
-			id: fullAlbumCoverRadius
-			from: 2
-			to: 26
-			stepSize: 2
-			Kirigami.FormData.label: i18n("Album cover radius")
-		}
     }
 
     QtDialogs.FileDialog {
