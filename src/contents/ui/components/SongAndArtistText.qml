@@ -12,6 +12,11 @@ ColumnLayout {
         SecondLine
     }
 
+    enum VerticalPosition {
+        AboveProgressBar,
+        UnderProgressBar
+    }
+
     property var maxWidth: undefined
     property var scrollingBehaviour: undefined
     property var scrollingSpeed: undefined
@@ -76,7 +81,7 @@ ColumnLayout {
         textColor: root.color
         forcePauseScrolling: root.forcePauseScrolling
         truncateStyle: root.truncateStyle
-        Layout.alignment: root.textAlignment
+        textAlignment: root.textAlignment
     }
 
     // second row of text
@@ -95,6 +100,6 @@ ColumnLayout {
         textColor: root.color
         forcePauseScrolling: root.forcePauseScrolling
         truncateStyle: root.truncateStyle
-        Layout.alignment: root.textAlignment
+        textAlignment: root.textAlignment
     }
 }
